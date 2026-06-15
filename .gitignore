@@ -1,0 +1,10 @@
+authorized-key*.json
+yc-auth*.yaml
+*.key
+*.pem
+.env
+.env.*
+kubeconfig
+config
+terraform.tfstate*
+*.tfvars

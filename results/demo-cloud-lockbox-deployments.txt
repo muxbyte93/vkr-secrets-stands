@@ -1,0 +1,3 @@
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+demo-cloud-lockbox-env    1/1     1            1           21s
+demo-cloud-lockbox-file   1/1     1            1           21s

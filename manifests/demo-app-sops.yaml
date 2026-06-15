@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-sops-env
+  namespace: secrets-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-sops-env
+  template:
+    metadata:
+      labels:
+        app: demo-sops-env
+    spec:
+      containers:
+        - name: app
+          image: busybox:1.36
+          command: ["/bin/sh", "-c"]
+          args:
+            - while true; do printf 'sops-env='; printf '%s' "$DB_PASSWORD" | sha256sum | cut -c1-8; sleep 10; done
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sops-demo
+                  key: db-password
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-sops-file
+  namespace: secrets-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-sops-file
+  template:
+    metadata:
+      labels:
+        app: demo-sops-file
+    spec:
+      containers:
+        - name: app
+          image: busybox:1.36
+          command: ["/bin/sh", "-c"]
+          args:
+            - while true; do printf 'sops-file='; sha256sum /etc/secrets/db-password | cut -c1-8; sleep 10; done
+          volumeMounts:
+            - name: app-secret
+              mountPath: /etc/secrets
+              readOnly: true
+      volumes:
+        - name: app-secret
+          secret:
+            secretName: sops-demo

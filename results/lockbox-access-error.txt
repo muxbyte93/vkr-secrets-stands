@@ -1,0 +1,49 @@
+Name:         app-secrets-lockbox
+Namespace:    secrets-lab
+Labels:       <none>
+Annotations:  <none>
+API Version:  external-secrets.io/v1
+Kind:         ExternalSecret
+Metadata:
+  Creation Timestamp:  2026-05-01T06:57:45Z
+  Finalizers:
+    externalsecrets.external-secrets.io/externalsecret-cleanup
+  Generation:        1
+  Resource Version:  4262
+  UID:               7e5edc3b-fb30-4a11-bc96-eed37df91e82
+Spec:
+  Data:
+    Remote Ref:
+      Conversion Strategy:  Default
+      Decoding Strategy:    None
+      Key:                  <YANDEX_LOCKBOX_ID>
+      Metadata Policy:      None
+      Null Byte Policy:     Ignore
+      Property:             password
+    Secret Key:             db-password
+  Refresh Interval:         1m
+  Secret Store Ref:
+    Kind:  SecretStore
+    Name:  yandex-lockbox-store
+  Target:
+    Creation Policy:  Owner
+    Deletion Policy:  Retain
+    Name:             app-secrets-lockbox-k8s
+Status:
+  Binding:
+    Name:  app-secrets-lockbox-k8s
+  Conditions:
+    Last Transition Time:   2026-05-01T07:30:46Z
+    Message:                could not get secret data from provider
+    Reason:                 SecretSyncedError
+    Status:                 False
+    Type:                   Ready
+  Refresh Time:             2026-05-01T07:29:46Z
+  Synced Resource Version:  1-5b4a0fc3cdcdcd29908cf771b907453be6cf313868c53703f873bcc7
+Events:
+  Type     Reason        Age                   From              Message
+  ----     ------        ----                  ----              -------
+  Warning  UpdateFailed  34m (x2 over 34m)     external-secrets  error processing spec.data[0] (key: <YANDEX_LOCKBOX_ID>), err: SecretStore "yandex-lockbox-store" is not ready
+  Normal   Created       34m                   external-secrets  secret created
+  Normal   Updated       6m18s (x11 over 28m)  external-secrets  secret updated
+  Warning  UpdateFailed  15s (x7 over 78s)     external-secrets  error processing spec.data[0] (key: <YANDEX_LOCKBOX_ID>), err: unable to request secret payload to get secret: rpc error: code = PermissionDenied desc = Permission denied

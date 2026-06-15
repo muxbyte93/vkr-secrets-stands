@@ -1,0 +1,34 @@
+apiVersion: external-secrets.io/v1
+kind: SecretStore
+metadata:
+  name: fake-store
+  namespace: secrets-lab
+spec:
+  provider:
+    fake:
+      data:
+        - key: /vkr/demo/db-password
+          value: initial-local-password
+          version: v1
+        - key: /vkr/demo/db-password
+          value: rotated-local-password
+          version: v2
+---
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: app-secrets
+  namespace: secrets-lab
+spec:
+  refreshInterval: 1m
+  secretStoreRef:
+    name: fake-store
+    kind: SecretStore
+  target:
+    name: app-secrets-k8s
+    creationPolicy: Owner
+  data:
+    - secretKey: db-password
+      remoteRef:
+        key: /vkr/demo/db-password
+        version: v1

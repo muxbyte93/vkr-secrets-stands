@@ -1,0 +1,12 @@
+profile=prod
+2026-04-30T19:38:24+03:00
+NAME   STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
+prod   Ready    control-plane   4m44s   v1.35.1   192.168.67.2   <none>        Debian GNU/Linux 12 (bookworm)   6.17.0-14-generic   docker://29.2.1
+NAME                                                READY   STATUS    RESTARTS   AGE
+external-secrets-5c77f8c67b-h4bqh                   1/1     Running   0          3m15s
+external-secrets-cert-controller-75976d9c6b-rf792   1/1     Running   0          3m15s
+external-secrets-webhook-64b5b9c8d4-2sfms           1/1     Running   0          3m15s
+NAME          STORETYPE     STORE        REFRESH INTERVAL   STATUS         READY   LAST SYNC
+app-secrets   SecretStore   fake-store   1m                 SecretSynced   True    56s
+NAME              TYPE     DATA   AGE
+app-secrets-k8s   Opaque   1      56s

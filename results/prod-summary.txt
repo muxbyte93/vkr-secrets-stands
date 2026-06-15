@@ -1,0 +1,29 @@
+profile=prod
+2026-05-01T11:15:20+03:00
+NAME   STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
+prod   Ready    control-plane   116m   v1.35.1   192.168.67.2   <none>        Debian GNU/Linux 12 (bookworm)   6.17.0-14-generic   docker://29.2.1
+NAME               STATUS   AGE
+default            Active   116m
+external-secrets   Active   80m
+kube-node-lease    Active   116m
+kube-public        Active   116m
+kube-system        Active   116m
+secrets-lab        Active   113m
+NAMESPACE          NAME                                                READY   STATUS    RESTARTS       AGE
+external-secrets   external-secrets-c998c7fcf-hjcqq                    1/1     Running   0              8m4s
+external-secrets   external-secrets-cert-controller-75976d9c6b-w2jdh   1/1     Running   0              80m
+external-secrets   external-secrets-webhook-64b5b9c8d4-hd7qn           1/1     Running   0              80m
+kube-system        coredns-7d764666f9-k9d7f                            1/1     Running   3 (105m ago)   116m
+kube-system        etcd-prod                                           1/1     Running   3 (105m ago)   116m
+kube-system        kube-apiserver-prod                                 1/1     Running   3 (105m ago)   116m
+kube-system        kube-controller-manager-prod                        1/1     Running   3 (105m ago)   116m
+kube-system        kube-proxy-f6bjr                                    1/1     Running   3 (105m ago)   116m
+kube-system        kube-scheduler-prod                                 1/1     Running   3 (105m ago)   116m
+kube-system        storage-provisioner                                 1/1     Running   6 (99m ago)    116m
+secrets-lab        demo-lockbox-env-5b59c84c9-22lcw                    1/1     Running   0              32m
+secrets-lab        demo-lockbox-file-85f9dc499d-299xg                  1/1     Running   0              76m
+NAMESPACE     NAME                  STORETYPE     STORE                  REFRESH INTERVAL   STATUS         READY   LAST SYNC
+secrets-lab   app-secrets-lockbox   SecretStore   yandex-lockbox-store   1m                 SecretSynced   True    3s
+NAME                      TYPE     DATA   AGE
+app-secrets-lockbox-k8s   Opaque   1      77m
+yc-auth                   Opaque   1      79m

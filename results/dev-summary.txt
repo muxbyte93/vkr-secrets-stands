@@ -1,0 +1,38 @@
+profile=dev
+2026-05-01T11:15:20+03:00
+NAME   STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
+dev    Ready    control-plane   4d19h   v1.35.1   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   6.17.0-14-generic   docker://29.2.1
+NAME               STATUS   AGE
+default            Active   4d19h
+external-secrets   Active   4d18h
+kube-node-lease    Active   4d19h
+kube-public        Active   4d19h
+kube-system        Active   4d19h
+secrets-lab        Active   4d19h
+vault              Active   2d12h
+NAMESPACE          NAME                                                READY   STATUS    RESTARTS        AGE
+external-secrets   external-secrets-cert-controller-7976cbbc5f-lv49l   1/1     Running   12 (105m ago)   4d18h
+external-secrets   external-secrets-f5ddc78c5-cjt5n                    1/1     Running   12 (105m ago)   4d18h
+external-secrets   external-secrets-webhook-6957569cd7-b9zsl           1/1     Running   9 (105m ago)    4d18h
+kube-system        coredns-7d764666f9-6dfll                            1/1     Running   9 (105m ago)    4d19h
+kube-system        etcd-dev                                            1/1     Running   9 (105m ago)    4d19h
+kube-system        kube-apiserver-dev                                  1/1     Running   9 (105m ago)    4d19h
+kube-system        kube-controller-manager-dev                         1/1     Running   10 (105m ago)   4d19h
+kube-system        kube-proxy-jsb8j                                    1/1     Running   9 (105m ago)    4d19h
+kube-system        kube-scheduler-dev                                  1/1     Running   9 (105m ago)    4d19h
+kube-system        sealed-secrets-controller-86dc6b9b99-rbzfx          1/1     Running   8 (99m ago)     13h
+kube-system        storage-provisioner                                 1/1     Running   18 (99m ago)    4d19h
+secrets-lab        demo-env-5bc859fd6c-9jbz9                           1/1     Running   6 (105m ago)    2d13h
+secrets-lab        demo-file-594564cfdb-rgcg7                          1/1     Running   6 (105m ago)    2d14h
+secrets-lab        demo-sealed-env-7fd684777c-v99bk                    1/1     Running   4 (105m ago)    13h
+secrets-lab        demo-sealed-file-788645cb7d-6xmcq                   1/1     Running   4 (105m ago)    13h
+secrets-lab        demo-sops-env-7499cbbd55-gksss                      1/1     Running   4 (105m ago)    13h
+secrets-lab        demo-sops-file-5fdcd59f57-6ql52                     1/1     Running   4 (105m ago)    13h
+vault              vault-0                                             1/1     Running   4 (105m ago)    15h
+vault              vault-agent-injector-8c76487db-n4lzq                1/1     Running   4 (105m ago)    15h
+NAMESPACE     NAME          STORETYPE     STORE        REFRESH INTERVAL   STATUS         READY   LAST SYNC
+secrets-lab   app-secrets   SecretStore   fake-store   1m                 SecretSynced   True    2s
+NAME              TYPE     DATA   AGE
+app-secrets-k8s   Opaque   1      4d17h
+sealed-demo       Opaque   1      13h
+sops-demo         Opaque   1      13h

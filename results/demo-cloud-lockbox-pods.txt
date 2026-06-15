@@ -1,0 +1,3 @@
+NAME                                       READY   STATUS    RESTARTS   AGE   IP             NODE                        NOMINATED NODE   READINESS GATES
+demo-cloud-lockbox-env-6847986c5c-r82bm    1/1     Running   0          21s   10.96.128.10   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+demo-cloud-lockbox-file-5fbcb79779-c82zx   1/1     Running   0          21s   10.96.128.11   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>

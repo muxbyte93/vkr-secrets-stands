@@ -1,0 +1,31 @@
+apiVersion: external-secrets.io/v1
+kind: SecretStore
+metadata:
+  name: yandex-lockbox-store
+  namespace: secrets-lab
+spec:
+  provider:
+    yandexlockbox:
+      auth:
+        authorizedKeySecretRef:
+          name: yc-auth
+          key: authorized-key
+---
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: app-secrets-lockbox
+  namespace: secrets-lab
+spec:
+  refreshInterval: 1m
+  secretStoreRef:
+    name: yandex-lockbox-store
+    kind: SecretStore
+  target:
+    name: app-secrets-lockbox-k8s
+    creationPolicy: Owner
+  data:
+    - secretKey: db-password
+      remoteRef:
+        key: <YANDEX_LOCKBOX_ID>
+        property: password

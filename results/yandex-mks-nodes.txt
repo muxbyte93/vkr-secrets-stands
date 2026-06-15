@@ -1,0 +1,2 @@
+NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP     OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+<YANDEX_MKS_NODE_OR_CLUSTER_ID>   Ready    <none>   10s   v1.32.1   10.10.0.16    81.26.189.167   Ubuntu 22.04.5 LTS   5.15.0-168-generic   containerd://1.7.27

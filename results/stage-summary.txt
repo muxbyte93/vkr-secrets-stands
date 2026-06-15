@@ -1,0 +1,26 @@
+profile=stage
+2026-05-01T11:15:20+03:00
+NAME    STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
+stage   Ready    control-plane   4d19h   v1.35.1   192.168.58.2   <none>        Debian GNU/Linux 12 (bookworm)   6.17.0-14-generic   docker://29.2.1
+NAME               STATUS   AGE
+default            Active   4d19h
+external-secrets   Active   4d18h
+kube-node-lease    Active   4d19h
+kube-public        Active   4d19h
+kube-system        Active   4d19h
+secrets-lab        Active   4d19h
+NAMESPACE          NAME                                                READY   STATUS    RESTARTS        AGE
+external-secrets   external-secrets-cert-controller-7976cbbc5f-lbzwj   1/1     Running   13 (105m ago)   4d18h
+external-secrets   external-secrets-f5ddc78c5-f6blr                    1/1     Running   13 (105m ago)   4d18h
+external-secrets   external-secrets-webhook-6957569cd7-n4jk2           1/1     Running   8 (105m ago)    4d18h
+kube-system        coredns-7d764666f9-vhr9k                            1/1     Running   8 (105m ago)    4d19h
+kube-system        etcd-stage                                          1/1     Running   8 (105m ago)    4d19h
+kube-system        kube-apiserver-stage                                1/1     Running   8 (105m ago)    4d19h
+kube-system        kube-controller-manager-stage                       1/1     Running   8 (105m ago)    4d19h
+kube-system        kube-proxy-nmn7j                                    1/1     Running   14 (105m ago)   4d19h
+kube-system        kube-scheduler-stage                                1/1     Running   8 (105m ago)    4d19h
+kube-system        storage-provisioner                                 1/1     Running   17 (99m ago)    4d19h
+NAMESPACE     NAME          STORETYPE     STORE        REFRESH INTERVAL   STATUS         READY   LAST SYNC
+secrets-lab   app-secrets   SecretStore   fake-store   1m                 SecretSynced   True    49s
+NAME              TYPE     DATA   AGE
+app-secrets-k8s   Opaque   1      4d17h

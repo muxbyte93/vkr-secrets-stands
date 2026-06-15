@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-lockbox-env
+  namespace: secrets-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-lockbox-env
+  template:
+    metadata:
+      labels:
+        app: demo-lockbox-env
+    spec:
+      containers:
+        - name: app
+          image: busybox:1.36
+          command: ["/bin/sh", "-c"]
+          args:
+            - while true; do printf 'lockbox-env='; printf '%s' "$DB_PASSWORD" | sha256sum | cut -c1-8; sleep 10; done
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets-lockbox-k8s
+                  key: db-password
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-lockbox-file
+  namespace: secrets-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-lockbox-file
+  template:
+    metadata:
+      labels:
+        app: demo-lockbox-file
+    spec:
+      containers:
+        - name: app
+          image: busybox:1.36
+          command: ["/bin/sh", "-c"]
+          args:
+            - while true; do printf 'lockbox-file='; sha256sum /etc/secrets/db-password | cut -c1-8; sleep 10; done
+          volumeMounts:
+            - name: app-secret
+              mountPath: /etc/secrets
+              readOnly: true
+      volumes:
+        - name: app-secret
+          secret:
+            secretName: app-secrets-lockbox-k8s

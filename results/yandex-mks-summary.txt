@@ -1,0 +1,45 @@
+context=yandex-prod
+date=2026-05-01T17:33:06+03:00
+
+=== Nodes ===
+NAME                        STATUS   ROLES    AGE    VERSION   INTERNAL-IP   EXTERNAL-IP     OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+<YANDEX_MKS_NODE_OR_CLUSTER_ID>   Ready    <none>   110m   v1.32.1   10.10.0.16    81.26.189.167   Ubuntu 22.04.5 LTS   5.15.0-168-generic   containerd://1.7.27
+
+=== Namespaces ===
+NAME               STATUS   AGE
+default            Active   113m
+external-secrets   Active   89m
+kube-node-lease    Active   113m
+kube-public        Active   113m
+kube-system        Active   113m
+secrets-lab        Active   80m
+yandex-system      Active   113m
+
+=== Pods ===
+NAMESPACE          NAME                                                READY   STATUS    RESTARTS   AGE    IP             NODE                        NOMINATED NODE   READINESS GATES
+external-secrets   external-secrets-5b9cbf5756-4nrzz                   1/1     Running   0          14m    10.96.128.15   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+external-secrets   external-secrets-cert-controller-66d744cdd4-t7rll   1/1     Running   0          14m    10.96.128.17   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+external-secrets   external-secrets-webhook-5cfbbc4fd6-jhcdf           1/1     Running   0          14m    10.96.128.16   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        coredns-768847b69f-q86bs                            1/1     Running   0          113m   10.96.128.3    <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        ip-masq-agent-jggq2                                 1/1     Running   0          110m   10.10.0.16     <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        kube-dns-autoscaler-66b55897-8fh78                  1/1     Running   0          113m   10.96.128.6    <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        kube-proxy-ppbjq                                    1/1     Running   0          110m   10.10.0.16     <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        metrics-server-8689cb9795-6pdz6                     1/1     Running   0          113m   10.96.128.4    <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        metrics-server-8689cb9795-xw578                     1/1     Running   0          113m   10.96.128.5    <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        npd-v0.8.0-r5p9h                                    1/1     Running   0          110m   10.96.128.2    <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+kube-system        yc-disk-csi-node-v2-7nwsc                           6/6     Running   0          110m   10.10.0.16     <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+secrets-lab        demo-cloud-lockbox-env-58cc775d9d-lr8xb             1/1     Running   0          45m    10.96.128.14   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+secrets-lab        demo-cloud-lockbox-file-5fbcb79779-c82zx            1/1     Running   0          62m    10.96.128.11   <YANDEX_MKS_NODE_OR_CLUSTER_ID>   <none>           <none>
+
+=== ExternalSecrets ===
+NAMESPACE     NAME                        STORETYPE     STORE                        REFRESH INTERVAL   STATUS         READY   LAST SYNC
+secrets-lab   cloud-app-secrets-lockbox   SecretStore   yandex-cloud-lockbox-store   1m                 SecretSynced   True    58s
+
+=== SecretStores ===
+NAMESPACE     NAME                         AGE   STATUS   CAPABILITIES   READY
+secrets-lab   yandex-cloud-lockbox-store   65m   Valid    ReadOnly       True
+
+=== Secrets in secrets-lab ===
+NAME                            TYPE     DATA   AGE
+cloud-app-secrets-lockbox-k8s   Opaque   1      65m
+yc-auth-cloud                   Opaque   1      80m
